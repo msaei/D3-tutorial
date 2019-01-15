@@ -22,3 +22,10 @@ svg.append('line')
     .attr('x2', 100)
     .attr('y2', 200)
     .attr('stroke', 'red');
+
+svg.append('text')
+    .attr('x', 20)
+    .attr('y', 200)
+    .attr('fill', 'grey')
+    .text('Hello')
+    .style('font-family', 'arial')
