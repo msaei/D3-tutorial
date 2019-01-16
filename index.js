@@ -4,6 +4,14 @@ const svg = d3.select('.canvas')
     .attr('width', 600)
     .attr('height', 600);
 
+const margin = { top: 20, right: 20, bottom: 100, left: 100 };
+const graphWidth = 600 - margin.left - margin.right;
+const graphHeight = 600 - margin.top - margin.bottom;
+
+const graph = svg.append('g')
+    .attr('width', graphWidth)
+    .attr('height', graphHeight)
+    .attr('transform', `translate(${margin.left},${margin.top})`)
 
 
 d3.json('menu.json').then(data => {
@@ -18,7 +26,7 @@ d3.json('menu.json').then(data => {
         .paddingOuter(0.2);
 
     // join data to circles group
-    const rects = svg.selectAll('rect').data(data);
+    const rects = graph.selectAll('rect').data(data);
 
     // add attrs to circles already are in DOM
     rects.attr('width', x.bandwidth)
